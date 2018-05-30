@@ -14,9 +14,14 @@ class Form extends React.Component {
     this.props.pleaseFetchImages(term);
   };
 
+
   render() {
+      const inlineStyle = {margin: '10px',
+          background: 'red',
+          padding: '10px'};
     return (
       <form className="form" onSubmit={e => this.onSubmit(e)}>
+          <label style={inlineStyle}> likes count is: {this.props.likes} </label>
         <input
           type="text"
           ref={input => {

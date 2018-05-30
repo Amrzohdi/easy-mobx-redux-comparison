@@ -8,6 +8,7 @@ export default createStore(
   {
     term: "",
     images: [],
+    likesCount: 0,
     status: "initial"
   },
   applyMiddleware(thunk)

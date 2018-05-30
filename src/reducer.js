@@ -5,12 +5,14 @@ export default (state = {}, action) => {
         ...state,
         term: action.term,
         images: [],
+        likesCount: 0,
         status: "searching"
       };
     case "DONE_SEARCH":
       return {
         ...state,
         images: action.images,
+        likesCount: action.images.reduce( (acc,cur) => acc+cur.likes, 0),
         status: "done"
       };
     case "ERROR_SEARCH":

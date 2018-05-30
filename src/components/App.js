@@ -10,11 +10,12 @@ class App extends React.Component {
   }
 
   render() {
-    const { term, status, images } = this.props;
+    const { term, status, images, likesCount } = this.props;
+
 
     return (
       <div className="App">
-        <Form />
+        <Form likes={likesCount}/>
 
         {status === "searching" && <h3>Searching for {term}</h3>}
         {status === "done" &&
@@ -40,6 +41,7 @@ const mapStateToProps = state => {
   return {
     term: state.term,
     images: state.images,
+    likesCount: state.likesCount,
     status: state.status
   };
 };
