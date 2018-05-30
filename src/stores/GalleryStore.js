@@ -5,13 +5,17 @@ export default class GalleryStore {
   @observable term = "";
   @observable images = [];
   @observable status = "initial";
+  @observable likesCount = 0;
+  constructor(){
+    this.like = this.like.bind(this);
+  }
 
   @action
   fetchImages = async term => {
     this.status = "searching";
     this.term = term;
     this.images = [];
-
+    this.likesCount =0;
     try {
       await setTimeout(function(){
             axios.get(
@@ -39,5 +43,18 @@ export default class GalleryStore {
   setImages = images => {
     this.images = images;
     this.status = "done";
+    images.forEach(image => {this.likesCount+=image.likes} );
   };
+
+  @action
+  like = function (id){
+    this.likesCount++;
+    this.images = this.images.map( image => {
+      if(image.id == id)
+        image.likes++;
+      return image;
+    });
+  }
+
+
 }

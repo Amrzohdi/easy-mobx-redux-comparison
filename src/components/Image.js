@@ -1,7 +1,7 @@
 import React from "react";
+import ThumbsUp from 'react-icons/lib/fa/thumbs-o-up'
 
-
-export default ({image}) => {
+export default ({image, like}) => {
     const description = image.categories.length > 0 ? image.categories[0].title : image.user.name;
 
   return (
@@ -16,6 +16,7 @@ export default ({image}) => {
                     <a href={image.links.html} target="_blank">
                         View
                     </a>
+                    <button onClick={like.bind(null,image.id)}>  <ThumbsUp />  </button>
                 </div>
             </header>
 

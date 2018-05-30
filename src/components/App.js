@@ -11,11 +11,13 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { term, status, images } = this.props.galleryStore;
+    const { term, status, images, likesCount,like } = this.props.galleryStore;
 
     return (
       <div className="App">
+          {likesCount}
         <Form />
+
 
         {status === "searching" && <h3>Searching for {term}</h3>}
         {status === "done" &&
@@ -30,7 +32,7 @@ export default class App extends React.Component {
         {status === "error" && <h3>Oops... error!</h3>}
 
         <div className="images-container">
-          {images.map(image => <Image image={image} key={image.id} />)}
+          {images.map(image => <Image image={image} like={like} key={image.id} />)}
         </div>
       </div>
     );
