@@ -24,4 +24,3 @@ yarn-error.log*
 .sass-cache
 
 package-lock.json
-.idea
