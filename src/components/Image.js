@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Thumb from 'react-icons/lib/fa/thumbs-o-up'
 
 export default class Image extends React.Component {
   static propTypes = {
@@ -23,6 +24,7 @@ export default class Image extends React.Component {
               <a href={image.links.html} target="_blank">
                 View
               </a>
+                <button onClick={this.props.like.bind(this,image.id)}> <Thumb /> </button>
             </div>
           </header>
 

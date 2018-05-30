@@ -2,7 +2,7 @@ import React from "react";
 import Form from "./Form";
 import Image from "./Image";
 import { connect } from "react-redux";
-import { fetchImages } from "../actions";
+import { fetchImages,like } from "../actions";
 
 class App extends React.Component {
   componentWillMount() {
@@ -30,7 +30,7 @@ class App extends React.Component {
         {status === "error" && <h3>Oops... error!</h3>}
 
         <div className="images-container">
-          {images.map(image => <Image image={image} key={image.id} />)}
+          {images.map(image => <Image like={this.props.like} image={image} key={image.id} />)}
         </div>
       </div>
     );
@@ -50,6 +50,9 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchImages: term => {
       dispatch(fetchImages(term));
+    },
+    like: (id) => {
+        dispatch(like(id));
     }
   };
 };

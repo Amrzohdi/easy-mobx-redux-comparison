@@ -30,4 +30,13 @@ const fetchImages = term => {
   };
 };
 
-export { fetchImages };
+
+const like = (id) => {
+    return (dispatch) => {
+        dispatch({
+           type: 'like',
+           id: id
+        });
+    }
+};
+export { fetchImages,like };

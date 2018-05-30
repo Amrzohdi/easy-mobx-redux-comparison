@@ -20,6 +20,18 @@ export default (state = {}, action) => {
         ...state,
         status: "error"
       };
+    case "like":
+      let {images,likesCount} = state;
+      images = state.images.map( (image) => {
+          if(image.id == action.id)
+              image.likes++;
+          return image;
+      });
+      return {
+        ...state,
+        images: images,
+        likesCount: likesCount+1
+      };
     default:
       return state;
   }
