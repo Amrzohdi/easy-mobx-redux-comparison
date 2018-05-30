@@ -1,6 +1,6 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
-
+import ".././css/styles.css";
 @inject("galleryStore")
 @observer
 export default class Form extends React.Component {
@@ -11,8 +11,11 @@ export default class Form extends React.Component {
   };
 
   render() {
+      const {likesCount} = this.props.galleryStore;
     return (
+
       <form className="form" onSubmit={e => this.onSubmit(e)}>
+          <div Style=' background: red;margin: 10px;padding: 10px;'>Total Likes: {likesCount}</div>
         <input
           type="text"
           ref={input => {
@@ -22,6 +25,7 @@ export default class Form extends React.Component {
         />
         <button>SEARCH</button>
       </form>
+
     );
   }
 }

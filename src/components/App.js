@@ -11,11 +11,11 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { term, status, images, likesCount,like } = this.props.galleryStore;
+    const { term, status, images,like } = this.props.galleryStore;
 
     return (
       <div className="App">
-          {likesCount}
+
         <Form />
 
 
